@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(name="getCats",method='post', action='/cats')
+    input(type="text",name="breed" placeholder="breed")
+    input(type="text",name="color" placeholder="color")
+    input(type="text",name="date_of_birth" placeholder="date_of_birth")
+    input(type="text",name="price" placeholder="price")
+
+    input(type="submit" value="Add")
