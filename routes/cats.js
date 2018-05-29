@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 
 // GET method by id
 router.get('/:id', function(req, res, next) {
-    CatData.find({_id: parseInt(req.params.id) })
+    CatData.find({_id: req.params.id })
         .then( cat => {
             res.send(cat)
         })
@@ -64,7 +64,7 @@ router.delete('/:id', function(req, res, next) {
         })
 })
 router.put('/:id',  function(req, res, next) {
-    CatData.find({_id: parseInt(req.params.id) }).remove()
+    CatData.find({_id: req.params.id }).remove()
         .then( () => {
             var newCat = {...req.body, id: req.params.id}
             var data = new CatData(newCat);
